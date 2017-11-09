@@ -4,7 +4,7 @@ namespace app\models;
 
 use Yii;
 
-// este es un cambio realizado por limbert para demostrar el pull
+// este es un cambio realizado  para demostrar el pull
 
 /**
  * This is the model class for table "cnmoneda".
