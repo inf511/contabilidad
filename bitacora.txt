@@ -1,0 +1,4 @@
+bitacora de desarrollo
+
+sabado 11-11-17
+- se creo el CRUD de proyecto, planContable, chequera
