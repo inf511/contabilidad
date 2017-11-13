@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\cnmoneda */
+/* @var $model app\models\Cnbanco */
 
-$this->title = 'Crea Cnmoneda';
-$this->params['breadcrumbs'][] = ['label' => 'Monedas', 'url' => ['index']];
+$this->title = 'Crear banco';
+$this->params['breadcrumbs'][] = ['label' => 'Cnbancos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cnmoneda-create">
+<div class="cnbanco-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

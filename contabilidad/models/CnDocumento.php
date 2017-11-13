@@ -28,8 +28,8 @@ class CnDocumento extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cndescripcion', 'cndocnota'], 'string', 'max' => 50],
-            [['cndocbreve'], 'string', 'max' => 15],
+            [['descripcion', 'nota'], 'string', 'max' => 50],
+            [['breve'], 'string', 'max' => 15],
         ];
     }
 
@@ -39,10 +39,10 @@ class CnDocumento extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pk_document' => 'Pk Document',
-            'cndescripcion' => 'Cndescripcion',
-            'cndocnota' => 'Cndocnota',
-            'cndocbreve' => 'Cndocbreve',
+            'pk_document' => 'Documento',
+            'cndescripcion' => 'descripcion',
+            'cndocnota' => 'nota',
+            'cndocbreve' => 'breve',
         ];
     }
 }

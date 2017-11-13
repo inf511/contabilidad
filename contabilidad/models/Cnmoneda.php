@@ -40,9 +40,9 @@ class Cnmoneda extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pk_moneda' => 'Pk Moneda',
-            'cnsimbolo' => 'Cnsimbolo',
-            'cndescripcion' => 'Cndescripcion',
+            'pk_moneda' => 'Moneda',
+            'cnsimbolo' => 'Simbolo',
+            'cndescripcion' => 'Descripcion',
         ];
     }
 }
