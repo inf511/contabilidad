@@ -39,21 +39,14 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
         
-    ['label' => 'Home', 'url' => ['/site/index']],
-   
-   ['label' => 'Banco', 'url' => ['/cnbanco/index']],
-    
-      ['label' => 'Documento', 'url' => ['/cn-documento/index']],
-    
-	['label' => 'Monedas', 'url' => ['/cnmoneda/index']],
-    
-	['label' => 'Proyecto', 'url' => ['/cn-proyecto/index']],
-    
-	['label' => 'Chequeras', 'url' => ['/cnchequera/index']],
-    
-	['label' => 'Cuenta Analitica', 'url' => ['/cncuentacte/index']],
-    
-	['label' => 'PLAN CONTABLE ', 'url' => ['/cnplancontable/index']],
+            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Banco', 'url' => ['/cnbanco/index']],
+            ['label' => 'Documento', 'url' => ['/cndocumento/index']],
+            ['label' => 'Monedas', 'url' => ['/cnmoneda/index']],
+            ['label' => 'Proyecto', 'url' => ['/cnproyecto/index']],
+            ['label' => 'Chequeras', 'url' => ['/cnchequera/index']],
+            ['label' => 'Cuenta Analitica', 'url' => ['/cncuentacte/index']],
+            ['label' => 'PLAN CONTABLE ', 'url' => ['/cnplancontable/index']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

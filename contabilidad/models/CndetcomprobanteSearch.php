@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\CnProyecto;
+use app\models\Cndetcomprobante;
 
 /**
- * CnProyectoSearch represents the model behind the search form about `app\models\CnProyecto`.
+ * CndetcomprobanteSearch represents the model behind the search form about `app\models\Cndetcomprobante`.
  */
-class CnProyectoSearch extends CnProyecto
+class CndetcomprobanteSearch extends Cndetcomprobante
 {
     /**
      * @inheritdoc
@@ -18,8 +18,9 @@ class CnProyectoSearch extends CnProyecto
     public function rules()
     {
         return [
-            [['pk_proyecto', 'fkctacosto'], 'integer'],
-            [['cnnombre', 'cncodigo', 'cnclave', 'cnglosa', 'cnbreve', 'cnestado'], 'safe'],
+            [['pk_detcomprobante', 'fkcomprobante', 'fkcuentacontable', 'fkctacte', 'fkproyecto', 'fkdocument'], 'integer'],
+            [['cndebe', 'cnhaber'], 'number'],
+            [['cnnrodoc', 'cnglosadet'], 'safe'],
         ];
     }
 
@@ -41,7 +42,7 @@ class CnProyectoSearch extends CnProyecto
      */
     public function search($params)
     {
-        $query = CnProyecto::find();
+        $query = Cndetcomprobante::find();
 
         // add conditions that should always apply here
 
@@ -59,16 +60,18 @@ class CnProyectoSearch extends CnProyecto
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'pk_proyecto' => $this->pk_proyecto,
-            'fkctacosto' => $this->fkctacosto,
+            'pk_detcomprobante' => $this->pk_detcomprobante,
+            'fkcomprobante' => $this->fkcomprobante,
+            'fkcuentacontable' => $this->fkcuentacontable,
+            'cndebe' => $this->cndebe,
+            'cnhaber' => $this->cnhaber,
+            'fkctacte' => $this->fkctacte,
+            'fkproyecto' => $this->fkproyecto,
+            'fkdocument' => $this->fkdocument,
         ]);
 
-        $query->andFilterWhere(['like', 'cnnombre', $this->cnnombre])
-            ->andFilterWhere(['like', 'cncodigo', $this->cncodigo])
-            ->andFilterWhere(['like', 'cnclave', $this->cnclave])
-            ->andFilterWhere(['like', 'cnglosa', $this->cnglosa])
-            ->andFilterWhere(['like', 'cnbreve', $this->cnbreve])
-            ->andFilterWhere(['like', 'cnestado', $this->cnestado]);
+        $query->andFilterWhere(['like', 'cnnrodoc', $this->cnnrodoc])
+            ->andFilterWhere(['like', 'cnglosadet', $this->cnglosadet]);
 
         return $dataProvider;
     }

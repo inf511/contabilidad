@@ -3,8 +3,8 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\CnDocumento;
-use app\models\CnDocumentoSearch;
+use app\models\Cndocumento;
+use app\models\CndocumentoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * CnDocumentoController implements the CRUD actions for CnDocumento model.
  */
-class CnDocumentoController extends Controller
+class CndocumentoController extends Controller
 {
     /**
      * @inheritdoc
@@ -35,7 +35,7 @@ class CnDocumentoController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new CnDocumentoSearch();
+        $searchModel = new CndocumentoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -115,7 +115,7 @@ class CnDocumentoController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = CnDocumento::findOne($id)) !== null) {
+        if (($model = Cndocumento::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

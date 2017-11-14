@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\CnProyecto;
-use app\models\CnProyectoSearch;
+use app\models\Cndetcomprobante;
+use app\models\CndetcomprobanteSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CnProyectoController implements the CRUD actions for CnProyecto model.
+ * CndetcomprobanteController implements the CRUD actions for Cndetcomprobante model.
  */
-class CnProyectoController extends Controller
+class CndetcomprobanteController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CnProyectoController extends Controller
     }
 
     /**
-     * Lists all CnProyecto models.
+     * Lists all Cndetcomprobante models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CnProyectoSearch();
+        $searchModel = new CndetcomprobanteSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class CnProyectoController extends Controller
     }
 
     /**
-     * Displays a single CnProyecto model.
+     * Displays a single Cndetcomprobante model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +57,16 @@ class CnProyectoController extends Controller
     }
 
     /**
-     * Creates a new CnProyecto model.
+     * Creates a new Cndetcomprobante model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new CnProyecto();
+        $model = new Cndetcomprobante();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->pk_proyecto]);
+            return $this->redirect(['view', 'id' => $model->pk_detcomprobante]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +75,7 @@ class CnProyectoController extends Controller
     }
 
     /**
-     * Updates an existing CnProyecto model.
+     * Updates an existing Cndetcomprobante model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,7 +85,7 @@ class CnProyectoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->pk_proyecto]);
+            return $this->redirect(['view', 'id' => $model->pk_detcomprobante]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +94,7 @@ class CnProyectoController extends Controller
     }
 
     /**
-     * Deletes an existing CnProyecto model.
+     * Deletes an existing Cndetcomprobante model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class CnProyectoController extends Controller
     }
 
     /**
-     * Finds the CnProyecto model based on its primary key value.
+     * Finds the Cndetcomprobante model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return CnProyecto the loaded model
+     * @return Cndetcomprobante the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = CnProyecto::findOne($id)) !== null) {
+        if (($model = Cndetcomprobante::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

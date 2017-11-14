@@ -12,7 +12,7 @@ use Yii;
  * @property string $cndocnota
  * @property string $cndocbreve
  */
-class CnDocumento extends \yii\db\ActiveRecord
+class Cndocumento extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
