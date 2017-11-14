@@ -5,9 +5,6 @@ use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 use app\models\Cnmoneda;
 use yii\helpers\ArrayHelper;
-/* @var $this yii\web\View */
-/* @var $model app\models\Cnplancontable */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="cnplancontable-form">
@@ -17,8 +14,6 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'cncuentacontable')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'cndescripcion')->textInput(['maxlength' => true]) ?>
-
-    
 	
 	 <?= $form->field($model, 'fkmoneda')->widget(
             Select2::className(),
@@ -34,25 +29,27 @@ use yii\helpers\ArrayHelper;
             ]
         );
     ?>
-    
 
-    <?= $form->field($model, 'cnnivel')->textInput() ?>
+    <?= $form->field($model, 'cnnivel')->hiddenInput(['value' => 1])->label(false) ?>
 
-    <?= $form->field($model, 'cnctachica')->textInput(['maxlength' => true]) ?>
+    <div class="form-group">
+        <div class="col-md-3">
+            <?= $form->field($model, 'cnctachica')->checkbox() ?>
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'cnctacte')->checkbox() ?>
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'cnctaflujo')->checkbox() ?>
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'cnctapresu')->checkbox() ?>
+        </div>        
+    </div>
 
-    <?= $form->field($model, 'cnctacte')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'cnctaflujo')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'cnctapresu')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'cnestado')->hiddenInput()->label(false) ?>
+    <?= $form->field($model, 'cnestado')->hiddenInput(["value" => "T"])->label(false) ?>
 	
-	
-
-    <?= $form->field($model, 'cncuentapadre')->textInput() ?>
-
-	
+    <?= $form->field($model, 'cncuentapadre')->textInput() ?>	
 	
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

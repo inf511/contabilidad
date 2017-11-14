@@ -57,14 +57,14 @@ class Cnplancontable extends \yii\db\ActiveRecord
             'pk_plancontable' => 'Plan Contable',
             'cncuentacontable' => 'Cuenta Contable',
             'cndescripcion' => 'Descripcion',
-            'fkmoneda' => 'Moneda',
+            'fkmoneda' => 'Tipo de moneda',
             'cnnivel' => 'Nivel',
-            'cnctachica' => 'Cuenta Chica',
-            'cnctacte' => 'Cnctacte',
+            'cnctachica' => 'Cuenta con caja chica',
+            'cnctacte' => 'Cuenta con Analitica',
             'cnctaflujo' => 'Cuenta flujo',
-            'cnctapresu' => 'Cuenta presu',
+            'cnctapresu' => 'Cuenta presupuesto',
             'cnestado' => 'Estado',
-            'cncuentapadre' => 'Cuenta padre',
+            'cncuentapadre' => 'Cuenta Contable padre',
         ];
     }
 

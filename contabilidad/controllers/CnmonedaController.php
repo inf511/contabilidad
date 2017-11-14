@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\cnmoneda;
+use app\models\Cnmoneda;
 use app\models\CnmonedaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

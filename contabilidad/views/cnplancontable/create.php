@@ -2,13 +2,7 @@
 
 use yii\helpers\Html;
 
-
-/* @var $this yii\web\View */
-/* @var $model app\models\Cnplancontable */
-
-$this->title = 'Crear Plan Contable';
-$this->params['breadcrumbs'][] = ['label' => 'Cnplancontables', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Cuenta contable';
 ?>
 <div class="cnplancontable-create">
 

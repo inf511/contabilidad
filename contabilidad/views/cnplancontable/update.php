@@ -2,13 +2,7 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Cnplancontable */
-
-$this->title = 'Update Cnplancontable: ' . $model->pk_plancontable;
-$this->params['breadcrumbs'][] = ['label' => 'Cnplancontables', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->pk_plancontable, 'url' => ['view', 'id' => $model->pk_plancontable]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Editanto cuenta contable';
 ?>
 <div class="cnplancontable-update">
 

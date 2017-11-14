@@ -3,23 +3,18 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Cnplancontable */
-
-$this->title = $model->pk_plancontable;
-$this->params['breadcrumbs'][] = ['label' => 'Cnplancontables', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = $model->cncuentacontable . " - " . $model->cndescripcion;
 ?>
 <div class="cnplancontable-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->pk_plancontable], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->pk_plancontable], [
+        <?= Html::a('Editar', ['update', 'id' => $model->pk_plancontable], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Eliminar', ['delete', 'id' => $model->pk_plancontable], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Esta seguro de eliminar cuenta contable?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -28,17 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'pk_plancontable',
             'cncuentacontable',
             'cndescripcion',
-            'fkmoneda',
-            'cnnivel',
-            'cnctachica',
-            'cnctacte',
-            'cnctaflujo',
-            'cnctapresu',
-            'cnestado',
-            'cncuentapadre',
+            'fkmoneda0.cndescripcion'
+
         ],
     ]) ?>
 

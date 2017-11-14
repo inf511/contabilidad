@@ -45,4 +45,11 @@ class Cnmoneda extends \yii\db\ActiveRecord
             'cndescripcion' => 'Descripcion',
         ];
     }
+    /** 
+    * @return \yii\db\ActiveQuery 
+    */ 
+    public function getCnplancontables() 
+    { 
+        return $this->hasMany(Cnplancontable::className(), ['fkmoneda' => 'pk_moneda']); 
+    }
 }

@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\cnmoneda;
+use app\models\Cnmoneda;
 
 /**
  * CnmonedaSearch represents the model behind the search form about `app\models\cnmoneda`.
  */
-class CnmonedaSearch extends cnmoneda
+class CnmonedaSearch extends Cnmoneda
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class CnmonedaSearch extends cnmoneda
      */
     public function search($params)
     {
-        $query = cnmoneda::find();
+        $query = Cnmoneda::find();
 
         // add conditions that should always apply here
 
