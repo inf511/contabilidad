@@ -48,4 +48,9 @@ class Cnbanco extends \yii\db\ActiveRecord
             'cnobservacion' => 'Observacion',
         ];
     }
+	
+	
+	
+	
+	
 }
