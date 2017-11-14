@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\CnDocumento */
 
-$this->title = 'Create Cn Documento';
-$this->params['breadcrumbs'][] = ['label' => 'Cn Documentos', 'url' => ['index']];
+$this->title = 'Crear  Documento';
+$this->params['breadcrumbs'][] = ['label' => ' Documentos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cn-documento-create">

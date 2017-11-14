@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\CnDocumentoSearch */
+/* @var $searchModel app\models\CnProyectoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Documentos';
+$this->title = 'Proyectos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cn-documento-index">
+<div class="cn-proyecto-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Crear Documento', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Proyecto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,10 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'pk_document',
-            'cndescripcion',
-            'cndocnota',
-            'cndocbreve',
+            'pk_proyecto',
+            'cnnombre',
+            'cncodigo',
+            'cnclave',
+            'cnglosa',
+            // 'cnbreve',
+            // 'fkctacosto',
+            // 'cnestado',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

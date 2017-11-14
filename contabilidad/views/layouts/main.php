@@ -40,9 +40,20 @@ AppAsset::register($this);
         'items' => [
         
     ['label' => 'Home', 'url' => ['/site/index']],
+   
+   ['label' => 'Banco', 'url' => ['/cnbanco/index']],
     
-
-	['label' => 'Banco ', 'url' => ['/cnplancontable/index']],
+      ['label' => 'Documento', 'url' => ['/cn-documento/index']],
+    
+	['label' => 'Monedas', 'url' => ['/cnmoneda/index']],
+    
+	['label' => 'Proyecto', 'url' => ['/cn-proyecto/index']],
+    
+	['label' => 'Chequeras', 'url' => ['/cnchequera/index']],
+    
+	['label' => 'Cuenta Analitica', 'url' => ['/cncuentacte/index']],
+    
+	['label' => 'PLAN CONTABLE ', 'url' => ['/cnplancontable/index']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Cnbanco */
 
 $this->title = 'Crear banco';
-$this->params['breadcrumbs'][] = ['label' => 'Cnbancos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'bancos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cnbanco-create">
