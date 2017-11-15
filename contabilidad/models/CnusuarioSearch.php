@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Cncomprobante;
+use app\models\Cnusuario;
 
 /**
- * CncomprobanteSearch represents the model behind the search form about `app\models\Cncomprobante`.
+ * CnusuarioSearch represents the model behind the search form about `app\models\Cnusuario`.
  */
-class CncomprobanteSearch extends Cncomprobante
+class CnusuarioSearch extends Cnusuario
 {
     /**
      * @inheritdoc
@@ -18,9 +18,8 @@ class CncomprobanteSearch extends Cncomprobante
     public function rules()
     {
         return [
-            [['pk_comprobante', 'cntcomp', 'fkmoneda', 'fkbanco'], 'integer'],
-            [['cncodcomp', 'cnnrocomp', 'cnfechacomp', 'cncliente', 'cnglosa', 'cnestado'], 'safe'],
-            [['cntcambio'], 'number'],
+            [['pkusuario', 'fkgrupo'], 'integer'],
+            [['nickname', 'nombrecompleto', 'apellidocompleto', 'password', 'estado', 'email', 'authkey', 'accesstoken'], 'safe'],
         ];
     }
 
@@ -42,7 +41,7 @@ class CncomprobanteSearch extends Cncomprobante
      */
     public function search($params)
     {
-        $query = Cncomprobante::find();
+        $query = Cnusuario::find();
 
         // add conditions that should always apply here
 
@@ -60,19 +59,18 @@ class CncomprobanteSearch extends Cncomprobante
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'pk_comprobante' => $this->pk_comprobante,
-            'cntcomp' => $this->cntcomp,
-            'cnfechacomp' => $this->cnfechacomp,
-            'fkmoneda' => $this->fkmoneda,
-            'cntcambio' => $this->cntcambio,
-            'fkbanco' => $this->fkbanco,
+            'pkusuario' => $this->pkusuario,
+            'fkgrupo' => $this->fkgrupo,
         ]);
 
-        $query->andFilterWhere(['like', 'cncodcomp', $this->cncodcomp])
-            ->andFilterWhere(['like', 'cnnrocomp', $this->cnnrocomp])
-            ->andFilterWhere(['like', 'cncliente', $this->cncliente])
-            ->andFilterWhere(['like', 'cnglosa', $this->cnglosa])
-            ->andFilterWhere(['like', 'cnestado', $this->cnestado]);
+        $query->andFilterWhere(['like', 'nickname', $this->nickname])
+            ->andFilterWhere(['like', 'nombrecompleto', $this->nombrecompleto])
+            ->andFilterWhere(['like', 'apellidocompleto', $this->apellidocompleto])
+            ->andFilterWhere(['like', 'password', $this->password])
+            ->andFilterWhere(['like', 'estado', $this->estado])
+            ->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['like', 'authkey', $this->authkey])
+            ->andFilterWhere(['like', 'accesstoken', $this->accesstoken]);
 
         return $dataProvider;
     }

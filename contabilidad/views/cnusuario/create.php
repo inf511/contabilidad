@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Cncomprobante */
+/* @var $model app\models\Cnusuario */
 
-$this->title = 'Create Cncomprobante';
-$this->params['breadcrumbs'][] = ['label' => 'Cncomprobantes', 'url' => ['index']];
+$this->title = 'Create Cnusuario';
+$this->params['breadcrumbs'][] = ['label' => 'Cnusuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cncomprobante-create">
+<div class="cnusuario-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Cnplancontable;
-use app\models\CnplancontableSearch;
+use app\models\Cnusuario;
+use app\models\CnusuarioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CnplancontableController implements the CRUD actions for Cnplancontable model.
+ * CnusuarioController implements the CRUD actions for Cnusuario model.
  */
-class CnplancontableController extends Controller
+class CnusuarioController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CnplancontableController extends Controller
     }
 
     /**
-     * Lists all Cnplancontable models.
+     * Lists all Cnusuario models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CnplancontableSearch();
+        $searchModel = new CnusuarioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -43,48 +43,9 @@ class CnplancontableController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-    /** 
-     * Metodo que genera un archivo csv para subir al sistema de watson
-     */
-    public function actionGeneratecsv()
-    {
-        $cuentas = Cnplancontable::find()->all();
-        $this->createFile($cuentas);
-        return $this->redirect(['index']);
-    }
-    public function createFile($cuentas){
-        Yii::warning("url webrot : " . Yii::getAlias('@webroot'));
 
-        $path = Yii::getAlias('@webroot') . "/csvfiles/accounts.txt";
-        
-        $saltoLinea = "\n";
-        $gestor = fopen($path, "w");        
-        foreach ($cuentas as $cuenta) {
-            fwrite($gestor, trim($cuenta->cndescripcion) . ", " . trim($cuenta->cncuentacontable) . $saltoLinea);
-        }
-        fclose($gestor);
-    }
     /**
-     * Metodo que entrena el clasificador y sube al servidor
-     * $path : Direccion donde esta ubicado el clasificador
-     */
-    private function entrenarClasificador($path)
-    {
-        $curl = curl_init();
-
-        /**
-         * -i ::: muestra la informacion
-         * -F ::: indicaremos la ruta de un fichero a subir
-         *  curl -i 
-         *  -u "{username}":"{password}" 
-         *  -F training_data=@{path_to_file}/weather_data_train.csv 
-         *  -F training_metadata="{\"language\":\"en\",\"name\":\"TutorialClassifier\"}" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers"
-         * 
-         */
-            
-    }
-    /**
-     * Displays a single Cnplancontable model.
+     * Displays a single Cnusuario model.
      * @param integer $id
      * @return mixed
      */
@@ -96,16 +57,16 @@ class CnplancontableController extends Controller
     }
 
     /**
-     * Creates a new Cnplancontable model.
+     * Creates a new Cnusuario model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Cnplancontable();
+        $model = new Cnusuario();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->pk_plancontable]);
+            return $this->redirect(['view', 'id' => $model->pkusuario]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -114,7 +75,7 @@ class CnplancontableController extends Controller
     }
 
     /**
-     * Updates an existing Cnplancontable model.
+     * Updates an existing Cnusuario model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -124,7 +85,7 @@ class CnplancontableController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->pk_plancontable]);
+            return $this->redirect(['view', 'id' => $model->pkusuario]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -133,7 +94,7 @@ class CnplancontableController extends Controller
     }
 
     /**
-     * Deletes an existing Cnplancontable model.
+     * Deletes an existing Cnusuario model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -146,15 +107,15 @@ class CnplancontableController extends Controller
     }
 
     /**
-     * Finds the Cnplancontable model based on its primary key value.
+     * Finds the Cnusuario model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Cnplancontable the loaded model
+     * @return Cnusuario the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Cnplancontable::findOne($id)) !== null) {
+        if (($model = Cnusuario::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

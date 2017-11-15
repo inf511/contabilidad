@@ -12,6 +12,9 @@ $this->title = 'Plan Contable';
     <p>
         <?= Html::a('Crear cuenta contable', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    <p>
+        <?= Html::a('Generar archivo CSV', ['generatecsv'], ['class' => 'btn btn-warning']) ?>
+    </p>    
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
