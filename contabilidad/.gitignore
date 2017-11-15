@@ -14,6 +14,7 @@ Thumbs.db
 
 # composer vendor dir
 /vendor
+../server-conta/node_modules
 
 #la configuracion de la base de datos
 /config/db.php
