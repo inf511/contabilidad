@@ -43,7 +43,9 @@ class CndetcomprobanteController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
+    public function actionClasificador(){
+        return $this->render("accountClasificador");
+    }
     /**
      * Displays a single Cndetcomprobante model.
      * @param integer $id

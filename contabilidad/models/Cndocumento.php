@@ -40,9 +40,9 @@ class Cndocumento extends \yii\db\ActiveRecord
     {
         return [
             'pk_document' => 'Documento',
-            'cndescripcion' => 'descripcion',
-            'cndocnota' => 'nota',
-            'cndocbreve' => 'breve',
+            'cndescripcion' => 'Descripcion',
+            'cndocnota' => 'Nota',
+            'cndocbreve' => 'Abreviatura',
         ];
     }
 }

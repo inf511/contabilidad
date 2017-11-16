@@ -26,6 +26,11 @@ use Yii;
  */
 class Cndetcomprobante extends \yii\db\ActiveRecord
 {
+    /***
+     * variable para controlar el tipo de datos debe o haber
+     */
+    public $tipoDebeHaber;
+    public $codigoCuentaContable;
     /**
      * @inheritdoc
      */
@@ -61,14 +66,16 @@ class Cndetcomprobante extends \yii\db\ActiveRecord
         return [
             'pk_detcomprobante' => 'Pk Detcomprobante',
             'fkcomprobante' => 'Fkcomprobante',
-            'fkcuentacontable' => 'Fkcuentacontable',
+            'fkcuentacontable' => 'Cuenta contable',
             'cndebe' => 'Cndebe',
             'cnhaber' => 'Cnhaber',
             'fkctacte' => 'identificador de cuenta corriente',
             'fkproyecto' => 'identificador de proyecto',
             'fkdocument' => 'Fkdocument',
             'cnnrodoc' => 'Cnnrodoc',
-            'cnglosadet' => 'Cnglosadet',
+            'cnglosadet' => 'Descripcion de detalle',
+            'tipoDebeHaber' => "Pago",
+            "codigoCuentaContable" => "Cuenta Contable"
         ];
     }
 

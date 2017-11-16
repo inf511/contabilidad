@@ -12,21 +12,28 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'fkcomprobante')->textInput() ?>
+    <?= $form->field($model, 'fkcomprobante')->hiddenInput()->label(false) ?>
 
-    <?= $form->field($model, 'fkcuentacontable')->textInput() ?>
+    <?= $form->field($model, 'codigoCuentaContable')->textInput() ?>    
+
+    <?= $form->field($model, 'fkcuentacontable')->hiddenInput()->label(false) ?>
+    
+    <?= $form->field($model, 'tipoDebeHaber')->dropDownList(
+                [   '1' => 'DEBE', 
+                    '2' => 'HABER'                
+                ]) ?>
 
     <?= $form->field($model, 'cndebe')->textInput() ?>
 
     <?= $form->field($model, 'cnhaber')->textInput() ?>
 
-    <?= $form->field($model, 'fkctacte')->textInput() ?>
+    <?= $form->field($model, 'fkctacte')->hiddenInput(["value"=>"1"])->label(false) ?>
 
-    <?= $form->field($model, 'fkproyecto')->textInput() ?>
+    <?= $form->field($model, 'fkproyecto')->hiddenInput(["value"=>"1"])->label(false) ?>
 
-    <?= $form->field($model, 'fkdocument')->textInput() ?>
+    <?= $form->field($model, 'fkdocument')->hiddenInput(["value"=>"1"])->label(false) ?>
 
-    <?= $form->field($model, 'cnnrodoc')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'cnnrodoc')->hiddenInput(['value' => "000"])->label(false) ?>
 
     <?= $form->field($model, 'cnglosadet')->textInput(['maxlength' => true]) ?>
 

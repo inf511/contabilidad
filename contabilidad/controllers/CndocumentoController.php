@@ -63,7 +63,7 @@ class CndocumentoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new CnDocumento();
+        $model = new Cndocumento();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->pk_document]);

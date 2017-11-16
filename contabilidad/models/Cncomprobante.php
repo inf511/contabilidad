@@ -39,7 +39,7 @@ class Cncomprobante extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cntcomp', 'fkmoneda'], 'required'],
+            [['cntcomp', 'fkmoneda', 'cntcambio'], 'required'],
             [['cntcomp', 'fkmoneda', 'fkbanco'], 'integer'],
             [['cnfechacomp'], 'safe'],
             [['cntcambio'], 'number'],
@@ -60,16 +60,16 @@ class Cncomprobante extends \yii\db\ActiveRecord
     {
         return [
             'pk_comprobante' => 'Pk Comprobante',
-            'cncodcomp' => 'Cncodcomp',
-            'cntcomp' => 'Cntcomp',
-            'cnnrocomp' => 'Cnnrocomp',
-            'cnfechacomp' => 'Cnfechacomp',
-            'fkmoneda' => 'Fkmoneda',
-            'cntcambio' => 'Cntcambio',
-            'fkbanco' => 'Fkbanco',
-            'cncliente' => 'Cncliente',
-            'cnglosa' => 'Cnglosa',
-            'cnestado' => 'Cnestado',
+            'cncodcomp' => 'Codigo parcial',
+            'cntcomp' => 'Tipo de comprobante',
+            'cnnrocomp' => 'Codigo Comprobante',
+            'cnfechacomp' => 'Fecha',
+            'fkmoneda' => 'Tipo de moneda',
+            'cntcambio' => 'Tipo de cambio',
+            'fkbanco' => 'Banco',
+            'cncliente' => 'Cliente',
+            'cnglosa' => 'Descripcion',
+            'cnestado' => 'Estado',
         ];
     }
 
