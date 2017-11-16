@@ -1,8 +1,9 @@
 const express = require("express");
 const router  = express.Router();
+const clasificador = require("../clasificadorWatson.js");
 
-const User = require("../models/user");
-const Tabla = require("../models/csTabla");
+var watson = require('watson-developer-cloud');
+var fs = require('fs');
 
 router.get("/users", (req, res)=>{
     User.find({}, (err, users)=>{
@@ -10,65 +11,31 @@ router.get("/users", (req, res)=>{
     });
 });
 
-router.post("/users", (req, res)=>{
+/**
+ * Con este metodo vamos a ejecutar el entrenamiento
+ */
+router.get("/training", (req, res)=>{
+    // creacion de la conexion a watson
+
     // esto elimina el id por qe se genera automaticamente en mongodb
-    delete req.body._id;
-    console.log("json str: " + JSON.stringify(req.body));
-    User.create(req.body, (err, user)=>{
-        if(err){
-            res.json(err);
-        }else{
-            res.json(user);
-        }
-    });
+    let path = __dirname + "/accountfiles/accounts.csv";
+    clasificador.entrenarClasificador(watson, fs, path, res)
 });
 
-router.put("/users/:id", (req, res)=>{
-    // esto elimina el id por qe se genera automaticamente en mongodb
-    delete req.body.id;
-    User.update({_id: req.params.id}, req.body, (err, user)=>{
-        if(err){
-            res.json(err);
-        }else{
-            res.json(user);
-        }
-    });
+router.get("/list", (req, res)=>{
+    clasificador.listarClasificadores(watson, res);
 });
 
-router.delete("/users/:id", (req, res)=>{
+router.get("/information", (req, res)=>{
     // esto elimina el id por qe se genera automaticamente en mongodb
-    User.deleteOne({_id: req.params.id}, (err, user)=>{
-        if(err){
-            res.json(err);
-        }else{
-            res.json(user);
-        }
-    });
+    clasificador.getInformacion("9ddbcfx239-nlc-24401", watson, res);
 });
 
 //#################api rest de las tablas ##############################################
 // lista todas las tablas
-router.get("/tablas", (req, res)=>{
-    Tabla.find({}, (err, tablas)=>{
-        res.json(tablas);
-    });
+router.get("/clasificar", (req, res)=>{
+    clasificador.clasificar(watson, "PAGO DE SUELDO A JUAN PERES", "9ddbcfx239-nlc-24401", res);
 });
 
-// guarda una tabla
-router.post("/tablas", (req, res)=>{
-    // esto elimina el id por qe se genera automaticamente en mongodb
-    console.log("json str: " + JSON.stringify(req.body));
-    req.body.fechaCreate = new Date();
-    delete req.body._id;
-    Tabla.create(req.body, (err, tabla)=>{
-        if(err){
-            console.log("error!!");
-            res.json(err);
-        }else{
-            console.log("ok no problema");
-            res.json(tabla);
-        }
-    });
-});
 //######################################################################################
 module.exports = router;

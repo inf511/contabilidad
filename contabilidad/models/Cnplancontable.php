@@ -18,6 +18,7 @@ use Yii;
  * @property string $cnctapresu
  * @property string $cnestado
  * @property integer $cncuentapadre
+ * @property string $tag
  *
  * @property Cnchequera[] $cnchequeras
  * @property Cnmoneda $fkmoneda0
@@ -43,6 +44,7 @@ class Cnplancontable extends \yii\db\ActiveRecord
             [['fkmoneda', 'cnnivel', 'cncuentapadre'], 'integer'],
             [['cncuentacontable'], 'string', 'max' => 13],
             [['cndescripcion'], 'string', 'max' => 50],
+            [['tag'], 'string', 'max' => 100],
             [['cnctachica', 'cnctacte', 'cnctaflujo', 'cnctapresu', 'cnestado'], 'string', 'max' => 1],
             [['fkmoneda'], 'exist', 'skipOnError' => true, 'targetClass' => Cnmoneda::className(), 'targetAttribute' => ['fkmoneda' => 'pk_moneda']],
         ];
@@ -65,6 +67,7 @@ class Cnplancontable extends \yii\db\ActiveRecord
             'cnctapresu' => 'Cuenta presupuesto',
             'cnestado' => 'Estado',
             'cncuentapadre' => 'Cuenta Contable padre',
+            'tag' => 'Oraciones o palabras separadas por comas',
         ];
     }
 

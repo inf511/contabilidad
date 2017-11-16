@@ -1,0 +1,8 @@
+{  "classifier_id": "9ddbcfx239-nlc-24401",
+  "name": "Clasificador-contable",
+  "language": "es",
+  "created": "2017-11-16T04:29:13.909Z",
+  "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/9ddbcfx239-nlc-24401",
+  "status": "Training",
+  "status_description": "The classifier instance is in its training phase, not yet ready to accept classify requests"
+}

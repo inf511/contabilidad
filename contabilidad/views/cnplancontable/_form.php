@@ -49,7 +49,9 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'cnestado')->hiddenInput(["value" => "T"])->label(false) ?>
 	
-    <?= $form->field($model, 'cncuentapadre')->textInput() ?>	
+    <?= $form->field($model, 'tag')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'cncuentapadre')->textInput() ?>
 	
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

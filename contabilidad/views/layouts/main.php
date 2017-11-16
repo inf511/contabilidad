@@ -38,15 +38,23 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-        
+            
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Banco', 'url' => ['/cnbanco/index']],
-            ['label' => 'Documento', 'url' => ['/cndocumento/index']],
-            ['label' => 'Monedas', 'url' => ['/cnmoneda/index']],
-            ['label' => 'Proyecto', 'url' => ['/cnproyecto/index']],
-            ['label' => 'Chequeras', 'url' => ['/cnchequera/index']],
-            ['label' => 'Cuenta Analitica', 'url' => ['/cncuentacte/index']],
-            ['label' => 'PLAN CONTABLE ', 'url' => ['/cnplancontable/index']],
+            ['label'    => 'Otros Documentos',
+            'url'   => ['#'],  
+            'items' => [
+                ['label' => 'Banco', 'url' => ['/cnbanco/index']],
+                ['label' => 'Documento', 'url' => ['/cndocumento/index']],
+                ['label' => 'Monedas', 'url' => ['/cnmoneda/index']],
+                ['label' => 'Proyecto', 'url' => ['/cnproyecto/index']],
+                ['label' => 'Chequeras', 'url' => ['/cnchequera/index']],
+                ['label' => 'Cuenta Analitica', 'url' => ['/cncuentacte/index']],
+                ]
+            ],
+                        
+            ['label' => 'Plan contable', 'url' => ['/cnplancontable/index']],
+            ['label' => 'Comprobante contable', 'url' => ['/cncomprobante/index']],
+            ['label' => 'Det Comprobante', 'url' => ['/cndetcomprobante/index']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

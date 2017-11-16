@@ -55,34 +55,20 @@ class CnplancontableController extends Controller
     public function createFile($cuentas){
         Yii::warning("url webrot : " . Yii::getAlias('@webroot'));
 
-        $path = Yii::getAlias('@webroot') . "/csvfiles/accounts.txt";
+        $path = Yii::getAlias('@webroot') . "/csvfiles/accounts.csv";
         
         $saltoLinea = "\n";
         $gestor = fopen($path, "w");        
         foreach ($cuentas as $cuenta) {
-            fwrite($gestor, trim($cuenta->cndescripcion) . ", " . trim($cuenta->cncuentacontable) . $saltoLinea);
+            $listTag = explode(",", $cuenta->tag);
+            foreach($listTag as $tag){
+                if(strlen($tag) > 0)
+                    fwrite($gestor, trim($tag) . ", " . trim($cuenta->cncuentacontable) . $saltoLinea);
+            }            
         }
         fclose($gestor);
     }
-    /**
-     * Metodo que entrena el clasificador y sube al servidor
-     * $path : Direccion donde esta ubicado el clasificador
-     */
-    private function entrenarClasificador($path)
-    {
-        $curl = curl_init();
 
-        /**
-         * -i ::: muestra la informacion
-         * -F ::: indicaremos la ruta de un fichero a subir
-         *  curl -i 
-         *  -u "{username}":"{password}" 
-         *  -F training_data=@{path_to_file}/weather_data_train.csv 
-         *  -F training_metadata="{\"language\":\"en\",\"name\":\"TutorialClassifier\"}" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers"
-         * 
-         */
-            
-    }
     /**
      * Displays a single Cnplancontable model.
      * @param integer $id
