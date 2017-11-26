@@ -1,17 +1,17 @@
 /**
-    {
-        "url": "https://gateway.watsonplatform.net/natural-language-classifier/api",
-        "username": "e9a1b2e8-bf4f-478b-ae67-763528dc1ddb",
-        "password": "1LcR6rEyodjH"
-    }
+{ es el de ronald
+  "url": "https://gateway.watsonplatform.net/natural-language-classifier/api",
+  "username": "bf57b245-4a3e-4a2a-9f0d-b0892fa146e4",
+  "password": "llWVQk6qOwuE"
+}
  */
 /**
  * Metodo que autentifica a la api de watson
  */
 function autenticar(watson){
     let clasificador = watson.natural_language_classifier({
-        username: 'e9a1b2e8-bf4f-478b-ae67-763528dc1ddb',
-        password: '1LcR6rEyodjH',
+        username: 'bf57b245-4a3e-4a2a-9f0d-b0892fa146e4',
+        password: 'llWVQk6qOwuE',
         version: 'v1'
     });
     return clasificador;
@@ -72,6 +72,13 @@ function getInformacion(idClasificador, watson, respuesta){
           }
       });
 }
+/**
+ * 
+ * @param {Api de watson} watson 
+ * @param {Texto a clasificar} texto 
+ * @param {Id del clasificador} idClasificador 
+ * @param {respuesta del servidor} respuesta 
+ */
 function clasificar(watson, texto, idClasificador, respuesta){
     let clasificador = autenticar(watson);
     clasificador.classify({
@@ -87,7 +94,29 @@ function clasificar(watson, texto, idClasificador, respuesta){
           }
       });
 }
+function getmessage(watson, msg, respuesta){
+    let conversation = watson.conversation({
+        username: '3b0144aa-d46e-45ff-a5d3-7064c969bdfb',
+        password: 'ytoYv7muq34l',
+        version: 'v1',
+        version_date: '2017-05-26'
+    });
+
+    conversation.message({
+    workspace_id: '7230d8b3-9b1a-4cf6-a661-667fd2663ed2', // el id de ronald
+    input: {'text': msg}
+    },  (err, response)=>{
+        if (err){
+            console.log('error:', err);
+            respuesta.json(err);
+        }else{
+            console.log(JSON.stringify(response, null, 2));
+            respuesta.json(response);
+        }            
+    });    
+}
 module.exports.entrenarClasificador = entrenarClasificador;
 module.exports.listarClasificadores = listarClasificadores;
 module.exports.getInformacion = getInformacion;
 module.exports.clasificar = clasificar;
+module.exports.getmessage = getmessage;

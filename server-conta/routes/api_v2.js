@@ -27,15 +27,20 @@ router.get("/list", (req, res)=>{
 });
 
 router.get("/information", (req, res)=>{
-    // esto elimina el id por qe se genera automaticamente en mongodb
-    clasificador.getInformacion("9ddbcfx239-nlc-24401", watson, res);
+    // el id del nuevo clasificador id
+    clasificador.getInformacion("c53147x243-nlc-312", watson, res);
 });
 
-//#################api rest de las tablas ##############################################
-// lista todas las tablas
-router.get("/clasificar", (req, res)=>{
-    clasificador.clasificar(watson, "PAGO DE SUELDO A JUAN PERES", "9ddbcfx239-nlc-24401", res);
+// clasificador
+router.get("/clasificar/:search", (req, res)=>{
+    console.log("parametro de llegada : " + req.params.search);
+    clasificador.clasificar(watson, req.params.search, "c53147x243-nlc-312", res);
 });
 
+//######################################################################################
+router.get("/getboot/:message", (req, res)=>{
+    console.log("messge de llegada : " + req.params.message);
+    clasificador.getmessage(watson, req.params.message, res);
+});
 //######################################################################################
 module.exports = router;

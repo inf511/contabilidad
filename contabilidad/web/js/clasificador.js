@@ -1,8 +1,10 @@
+//let ip ="192.168.43.126"
+let ip ="localhost"
 function getClasificador(){
 
     let value = $("#iddescripcion").val();
     
-    let url = encodeURI("http://localhost:3000/api/clasificar/" + value);
+    let url = encodeURI("http://"+ip+":3000/api/clasificar/" + value);
 
     if((value.length)>5){
       $.get(url, 
@@ -33,7 +35,7 @@ function actualizarTabla(clases){
 function chat_sendMessage(){
     let value = $("#message").val();
     
-    let url = encodeURI("http://localhost:3000/api/getboot/" + value);
+    let url = encodeURI("http://" + ip + ":3000/api/getboot/" + value);
     
     if(value.length > 0){
         $.get(url, 
